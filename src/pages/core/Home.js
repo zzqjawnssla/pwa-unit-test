@@ -1,19 +1,19 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import '../../App.css'
 import {useNavigate} from "react-router-dom";
-import {Button} from "react-bootstrap";
+// import {Button} from "react-bootstrap";
 
-import QrScanner from '../../components/QrScanner'; // Import QrScanner component
+// import QrScanner from '../../components/QrScanner'; // Import QrScanner component
 
 
 const Home = () => {
     const navigate = useNavigate();
-    const [showScanner, setShowScanner] = useState(false); // State to control QR scanner visibility
-
-    const handleQRScanner = () => {
-        setShowScanner(true); // Show QR scanner
-    }
+    // const [showScanner, setShowScanner] = useState(false); // State to control QR scanner visibility
+    //
+    // const handleQRScanner = () => {
+    //     setShowScanner(true); // Show QR scanner
+    // }
 
     const handleUse = () => {
         navigate('/use-unit')
@@ -72,9 +72,9 @@ const Home = () => {
                 <div className="main-items" onClick={handleCreate}>
                     기타3 <br/>(미구현)
                 </div>
-                <Button onClick={handleQRScanner}>QR</Button>
+                {/*<Button onClick={handleQRScanner}>QR</Button>*/}
             </div>
-            {showScanner && <QrScanner/>} {/* Conditionally render QrScanner */}
+            {/*{showScanner && <QrScanner/>} /!* Conditionally render QrScanner *!/*/}
 
         </div>
     )
