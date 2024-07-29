@@ -2,9 +2,8 @@ import React from 'react'
 
 import '../../App.css'
 import {useNavigate} from "react-router-dom";
+// import {Scanner} from "@yudiel/react-qr-scanner";
 // import {Button} from "react-bootstrap";
-
-// import QrScanner from '../../components/QrScanner'; // Import QrScanner component
 
 
 const Home = () => {
@@ -74,8 +73,8 @@ const Home = () => {
                 </div>
                 {/*<Button onClick={handleQRScanner}>QR</Button>*/}
             </div>
-            {/*{showScanner && <QrScanner/>} /!* Conditionally render QrScanner *!/*/}
-
+            {/*{showScanner && <Scanner onScan={(result) => console.log(result)}*/}
+            {/*/>}*/}
         </div>
     )
 }
