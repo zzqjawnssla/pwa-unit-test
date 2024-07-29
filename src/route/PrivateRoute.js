@@ -3,10 +3,11 @@ import {Navigate} from 'react-router-dom';
 import History from '../pages/core/History';
 import UserInfo from "../pages/detail/User-info";
 import UseUnit from "../pages/detail/Use-unit";
-import UnitDetail from "../pages/detail/Unit-detail"; // Ensure this import is correct
+import UnitDetail from "../pages/detail/Unit-detail";
 
 const PrivateRoute = (props) => {
     if (props.authenticated === true) {
+        /* eslint-disable default-case */
         switch (props.component) {
             case 'UserInfoModal':
                 return <UserInfo setAuthenticated={props.setAuthenticated}/>;
