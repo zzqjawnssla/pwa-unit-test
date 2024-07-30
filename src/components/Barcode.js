@@ -5,6 +5,7 @@ import 'react-barcode-scanner/polyfill';
 const BarcodeScannerComponent = () => {
     const videoRef = useRef(null);
     const [error, setError] = useState(null);
+    const [result, setResult] = useState(null);
 
     useEffect(() => {
         // Check for camera permission
@@ -42,15 +43,20 @@ const BarcodeScannerComponent = () => {
         }
     };
 
+    const handleDetected = (result) => {
+        setResult(result);
+        console.log('Detected:', result);
+    };
+
     return (
         <div>
-            <h1>Barcode Scanner</h1>
             {error ? (
                 <p>{error}</p>
             ) : (
                 <>
                     <video ref={videoRef} autoPlay style={{display: 'none'}}/>
-                    <BarcodeScanner/>
+                    <BarcodeScanner onDetected={handleDetected}/>
+                    {result && <p>Detected: {result}</p>}
                 </>
             )}
         </div>

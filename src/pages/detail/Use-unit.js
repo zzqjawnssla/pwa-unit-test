@@ -4,12 +4,13 @@ import {collection, getDocs} from 'firebase/firestore';
 import {db} from '../../firebase/firebase';
 import {getTableCellBodyStyle, getTableCellHeadStyle} from '../../components/utils';
 import {useNavigate} from "react-router-dom";
+import BarcodeScanModal from "./Barcode-Scan-Modal";
 
 const UseUnit = () => {
     const navigate = useNavigate();
 
     const [data, setData] = useState();
-    // const [detailModal, setDetailModal] = useState(false);
+    const [barcodeModal, setBarcodeModal] = useState(false);
 
     const fetchUnitData = async () => {
         try {
@@ -28,6 +29,10 @@ const UseUnit = () => {
         navigate('/unit-detail', {state: {row}});
     };
 
+    const handleBarcodeScan = () => {
+        setBarcodeModal(true);
+    }
+
     return (
         <div className="standard">
             <div className="title">
@@ -38,7 +43,11 @@ const UseUnit = () => {
                     <Form.Control/>
                 </div>
                 <div>
-                    <Button>조회</Button>
+                    <Button style={{marginRight: '5px'}}>조회</Button>
+                </div>
+                <div>
+                    <Button onClick={handleBarcodeScan}>촬영</Button>
+                    <BarcodeScanModal open={barcodeModal} onHide={() => setBarcodeModal(false)}/>
                 </div>
             </div>
             <div style={{marginTop: '10px'}}>
